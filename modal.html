@@ -36,34 +36,39 @@
 	<script src="js/classModal.js"></script>
 	<script>
 		// use: 
-		ModalInfo('mojeInfo1', {
-			title: 'Moje Info 1',
-			info: 'To jest komunikat informacyjny z mojeInfo1.',
+		ModalInfo('myInfo1', {
+			title: 'My info 1',
+			info: 'This is the info message from myInfo1.',
 			icon: 'bi bi-info-square'
 		});
 
 
 		// Use with a time interval (e.g. 5000ms or 5 seconds):
-		ModalInfo('mojeInfo2', {
-			title: 'Moje Info 2',
-			info: 'To jest komunikat informacyjny z mojeInfo2.',
+		ModalInfo('myInfo2', {
+			title: 'My info 2',
+			info: 'This is the info message from myInfo2.',
 			icon: 'bi bi-info-square', // Bootstrap icon can be specified here
 			autoCloseInterval: 9000 // Add the time interval in milliseconds
 		});
 
-		ModalInfo('mojeInfo3', {
-			title: 'Moje Info 3',
-			info: 'To jest komunikat informacyjny z mojeInfo3.',
+		ModalInfo('myInfo3', {
+			title: 'My info 3',
+			info: 'This is the info message from myInfo3.',
 			icon: 'bi bi-info-square', // Bootstrap icon can be specified here
 			autoCloseInterval: 7000 // Add the time interval in milliseconds
 		});
 
-		ModalInfo('mojeInfo4', {
-			title: 'Moje Info 4',
-			info: 'To jest komunikat informacyjny z mojeInfo4.',
+		ModalInfo('myInfo4', {
+			title: 'My info 4',
+			info: 'This is the info message from myInfo4.',
 			icon: 'bi bi-info-square', 
 			autoCloseInterval: 5000   
 		});
+		// to close modal programmatically:
+		// myInfo1.close();
+		// myInfo2.close();
+		// myInfo3.close();
+		// myInfo4.close();
 	</script>
 </body>
 
