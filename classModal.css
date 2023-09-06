@@ -1,0 +1,51 @@
+/* Hide modals at the beginning */
+.modal {
+	display: none;
+}
+
+/* Center modal */
+.modal-dialog {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+/* Customize modal appearance */
+.modal-content {
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	background-color: #666;
+}
+
+/* Customize the appearance of the "OK" button */
+.btn-primary {
+	background-color: #333;
+	color: #fff;
+	border: 1px solid #000;
+}
+
+.btn-primary:hover {
+	background-color: #666;
+	color: #fff;
+}
+
+.btn {
+	border: 1px solid #666;
+}
+
+.btn:hover {
+	border: 1px solid #000;
+}
+
+/* Customize the appearance of the message body */
+.message {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	padding: 10px;
+}
