@@ -1,7 +1,7 @@
 /**
  * Simple InfoModal class for creating and managing informational modals.
  * Version 1.0
- * Author: Maciej Kawiak
+ * Author: Get Job
  * Email: getjobworking@gmail.com
  *
  * @class
