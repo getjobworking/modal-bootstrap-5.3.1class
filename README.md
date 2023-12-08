@@ -13,3 +13,13 @@ Use:
 
 		// to close modal programmatically:
 		// myInfo1.close();
+ver. 1.1
+
+Updated to display HTML instead of just text in the "info" parameter.
+
+		ModalInfo('myInfo1', {
+			title: 'My info 1',
+			info: '<p>This is the info message from myInfo1.</p>',
+			icon: 'bi bi-info-square', // Bootstrap icon can be specified here
+			autoCloseInterval: 9000 // Add the time interval in milliseconds
+		});
