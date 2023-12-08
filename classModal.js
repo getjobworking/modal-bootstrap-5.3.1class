@@ -1,6 +1,6 @@
 /**
  * Simple InfoModal class for creating and managing informational modals.
- * Version 1.0
+ * Version 1.1
  * Author: Get Job
  * Email: getjobworking@gmail.com
  *
@@ -28,6 +28,11 @@ class InfoModal {
 
     if (options.autoCloseInterval) {
       this.setupAutoClose(options.autoCloseInterval);
+    }
+    
+    if (options.info) {
+      const textElement = this.modalClone.querySelector('.text');
+      textElement.innerHTML = options.info;
     }
 
     if (options.icon) {
@@ -57,7 +62,8 @@ class InfoModal {
    * @param {string} message - The message to display in the modal.
    */
   show(message) {
-    this.modalClone.querySelector('.text').textContent = message;
+    const textElement = this.modalClone.querySelector('.text');
+    textElement.innerHTML = message;
     this.modal.show();
   }
 
