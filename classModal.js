@@ -1,6 +1,6 @@
 /**
  * Simple InfoModal class for creating and managing informational modals.
- * Version 1.1.2
+ * Version 1.1.3
  * Author: Get Job
  * Email: getjobworking@gmail.com
  *
@@ -23,6 +23,10 @@ class InfoModal {
 		this.modalClone.addEventListener('hidden.bs.modal', () => {
 			this.destroy();
 		});
+
+		if (options.autoCloseInterval) {
+			this.setupAutoClose(options.autoCloseInterval);
+		}
 
 		this.modalClone.style.display = 'block';
 		this.modalClone.style.visibility = 'visible';
@@ -64,6 +68,14 @@ class InfoModal {
 		closeButton.setAttribute('data-bs-dismiss', 'modal');
 		closeButton.setAttribute('aria-label', 'Close');
 
+		// Dodajemy ikonę, jeśli została dostarczona w opcjach
+		if (options.icon) {
+			const iconElement = document.createElement('div');
+			iconElement.className = 'icon';
+			iconElement.innerHTML = `<i class="${options.icon}"></i>`;
+			modalHeader.appendChild(iconElement);
+		}
+
 		modalHeader.appendChild(modalTitle);
 		modalHeader.appendChild(closeButton);
 
@@ -92,6 +104,7 @@ class InfoModal {
 
 		return modalElement;
 	}
+
 
 
 	/**
