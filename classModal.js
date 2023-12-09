@@ -129,11 +129,10 @@ class InfoModal {
 				buttonsContainer.appendChild(buttonElement);
 			});
 		} else {
-			// Domyślnie dodajemy jeden przycisk "Anuluj" (Cancel)
 			const cancelButton = document.createElement('button');
 			cancelButton.type = 'button';
 			cancelButton.className = 'btn btn-primary';
-			cancelButton.textContent = 'Anuluj';
+			cancelButton.textContent = 'Cancel';
 			cancelButton.addEventListener('click', () => this.destroy());
 
 			buttonsContainer.appendChild(cancelButton);
