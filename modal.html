@@ -64,6 +64,34 @@
 			icon: 'bi bi-info-square', 
 			autoCloseInterval: 5000   
 		});
+
+		ModalInfo('myInfo5', {
+			title: 'Kasowanie',
+			info: '<div class="modal-body"><p>Are you sure to delete?</p><div class="captcha-container"><p>Write word below:</p><p class="captcha-word">DELETE</p><input type="text" id="captchaInput" placeholder="Write word"></div></div>',
+			icon: 'bi bi-info-square',
+			buttons: [
+			{
+				label: 'OK',
+				className: 'btn-success',
+				callback: () => {
+					console.log('OK button clicked');
+					// Add support for the OK button here
+					// You can also close the modal if needed
+					// other code
+				},
+			},
+			{
+				label: 'Cancel',
+				className: 'btn-cancel',
+				callback: () => {
+					console.log('OK button clicked');
+					// Add support for the Cancel button here
+					// You can also close the modal if needed
+					myInfo5.close();
+				},
+			}
+			],
+		});
 		// to close modal programmatically:
 		// myInfo1.close();
 		// myInfo2.close();
