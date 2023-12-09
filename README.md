@@ -49,18 +49,14 @@ Added support for creating custom buttons:
 
 If no buttons are provided, a default "Cancel" button will be created:
 
-		// Default "Cancel" button creation
-		const cancelButton = document.createElement('button');
-		cancelButton.type = 'button';
-		cancelButton.className = 'btn btn-primary';
-		cancelButton.textContent = 'Cancel';
-		cancelButton.addEventListener('click', () => this.close());
-
 Version History
 
 
     1.1: Updated to display HTML content in the "info" parameter.
     1.1.1: Added support for creating custom buttons.
+    1.1.2: Bug fixes.
+    1.1.3: Bug fixes.
+    1.1.4: Default Cancel button name.
 
 Note: Make sure to include the Bootstrap 5.3.1 library before using this modal class.
 
