@@ -1,6 +1,6 @@
 /**
  * Simple InfoModal class for creating and managing informational modals.
- * Version 1.1
+ * Version 1.1.1
  * Author: Get Job
  * Email: getjobworking@gmail.com
  *
@@ -22,7 +22,7 @@ class InfoModal {
     this.modalClone.id = id;
     this.modalClone.querySelector('.modal-title').textContent = options.title || 'Information Message';
     const textElement = this.modalClone.querySelector('.text');
-    textElement.textContent = options.info || '';
+    textElement.innerHTML = options.info || '';
 
     this.autoCloseTimer = null;
 
@@ -30,11 +30,8 @@ class InfoModal {
       this.setupAutoClose(options.autoCloseInterval);
     }
     
-    if (options.info) {
-      const textElement = this.modalClone.querySelector('.text');
-      textElement.innerHTML = options.info;
-    }
-
+    this.setupButtons(options.buttons);
+    
     if (options.icon) {
       const iconElement = document.createElement('div');
       iconElement.className = 'icon';
@@ -42,9 +39,12 @@ class InfoModal {
       this.modalClone.querySelector('.message').insertBefore(iconElement, textElement);
     }
 
-    this.modalClone.querySelector('.btn-primary').addEventListener('click', () => {
-      this.close();
-    });
+    const primaryButton = this.modalClone.querySelector('.modal-footer button.btn-primary');
+    if (primaryButton) {
+      primaryButton.addEventListener('click', () => {
+        this.close();
+      });
+    }
 
     this.modalClone.addEventListener('hidden.bs.modal', () => {
       this.destroy();
@@ -55,6 +55,39 @@ class InfoModal {
     document.body.appendChild(this.modalClone);
     this.modal = new bootstrap.Modal(this.modalClone);
     this.show(options.info);
+  }
+  
+  /**
+   * Adds buttons to the modal based on the provided configuration.
+   * @param {array} buttons - An array of buttons.
+   */
+  setupButtons(buttons) {
+    const buttonsContainer = this.modalClone.querySelector('.modal-footer');
+
+    if (buttons && buttons.length > 0) {
+      buttons.forEach(button => {
+        const buttonElement = document.createElement('button');
+        buttonElement.type = 'button';
+        buttonElement.className = `btn ${button.className || 'btn-secondary'}`;
+        buttonElement.textContent = button.label || 'Button';
+        buttonElement.addEventListener('click', () => {
+          if (button.callback && typeof button.callback === 'function') {
+            button.callback();
+          }
+        });
+
+        buttonsContainer.appendChild(buttonElement);
+      });
+    } else {
+      // Domyślnie dodajemy jeden przycisk "Anuluj" (Cancel)
+      const cancelButton = document.createElement('button');
+      cancelButton.type = 'button';
+      cancelButton.className = 'btn btn-primary';
+      cancelButton.textContent = 'Anuluj';
+      cancelButton.addEventListener('click', () => this.close());
+
+      buttonsContainer.appendChild(cancelButton);
+    }
   }
 
   /**
