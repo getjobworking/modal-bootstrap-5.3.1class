@@ -1,6 +1,6 @@
 /**
  * Simple InfoModal class for creating and managing informational modals.
- * Version 1.1.3
+ * Version 1.1.4
  * Author: Get Job
  * Email: getjobworking@gmail.com
  *
@@ -19,7 +19,11 @@ class InfoModal {
 		this.id = id;
 		this.modalClone = this.createModal(id, options);
 		this.autoCloseTimer = null;
-
+		
+		if(!options.buttons){
+			this.defaultCancelInfo = 'Cancel';
+		}  
+		
 		this.modalClone.addEventListener('hidden.bs.modal', () => {
 			this.destroy();
 		});
@@ -27,7 +31,7 @@ class InfoModal {
 		if (options.autoCloseInterval) {
 			this.setupAutoClose(options.autoCloseInterval);
 		}
-
+		
 		this.modalClone.style.display = 'block';
 		this.modalClone.style.visibility = 'visible';
 		document.body.appendChild(this.modalClone);
@@ -132,7 +136,7 @@ class InfoModal {
 			const cancelButton = document.createElement('button');
 			cancelButton.type = 'button';
 			cancelButton.className = 'btn btn-primary';
-			cancelButton.textContent = 'Cancel';
+			cancelButton.textContent = this.defaultCancelInfo;
 			cancelButton.addEventListener('click', () => this.destroy());
 
 			buttonsContainer.appendChild(cancelButton);
